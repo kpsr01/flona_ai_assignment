@@ -2,7 +2,7 @@
 
 An intelligent system that automatically plans B-roll clip insertions into A-roll (talking-head/UGC) videos using Google's Gemini AI for video understanding and semantic matching.
 
-## 🎯 Problem Statement
+## Problem Statement
 
 Given an A-roll video (person speaking to camera) and multiple B-roll clips, the system:
 1. Analyzes the A-roll video and extracts timestamped transcription
@@ -11,7 +11,7 @@ Given an A-roll video (person speaking to camera) and multiple B-roll clips, the
 4. Outputs a structured timeline plan with reasoning
 5. Optionally renders the final stitched video
 
-## ✨ Features
+## Features
 
 - **A-Roll Transcription**: Gemini-powered transcription with timestamps (supports Hinglish)
 - **B-Roll Analysis**: AI-enhanced visual content descriptions for each clip
@@ -20,7 +20,7 @@ Given an A-roll video (person speaking to camera) and multiple B-roll clips, the
 - **Video Rendering**: FFmpeg-based video stitching with smooth crossfade transitions
 - **Continuous Audio**: A-roll narration remains uninterrupted throughout
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
@@ -35,7 +35,7 @@ Given an A-roll video (person speaking to camera) and multiple B-roll clips, the
                         └─────────────────┘
 ```
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Component | Technology |
 |-----------|------------|
@@ -45,10 +45,10 @@ Given an A-roll video (person speaking to camera) and multiple B-roll clips, the
 | **Video Processing** | FFmpeg |
 | **HTTP Client** | httpx, axios |
 
-## 📋 Prerequisites
+## Prerequisites
 
-1. **Python 3.11+** - [Download](https://python.org)
-2. **Node.js 18+** - [Download](https://nodejs.org)
+1. **Python 3.11+**
+2. **Node.js 18+**
 3. **FFmpeg** - Required for video rendering
 4. **Google Gemini API Key** - [Get API Key](https://aistudio.google.com/app/apikey)
 
@@ -69,12 +69,12 @@ brew install ffmpeg
 sudo apt install ffmpeg
 ```
 
-## 🚀 Setup Instructions
+## Setup Instructions
 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/flona-ai.git
+git clone https://github.com/kpsr01/flona_ai_assignment.git
 cd flona-ai
 ```
 
@@ -114,7 +114,7 @@ cd frontend
 npm install
 ```
 
-## ▶️ Running the Application
+## Running the Application
 
 ### Terminal 1 - Start Backend
 
@@ -137,7 +137,7 @@ npm run dev
 
 Open **http://localhost:5173** in your browser.
 
-## 📖 Usage Guide
+## Usage Guide
 
 1. **View Sample Videos**: The app loads pre-configured A-roll and B-roll videos
 2. **Generate Plan**: Click "Generate B-Roll Plan" to analyze videos (~1-2 minutes)
@@ -148,7 +148,7 @@ Open **http://localhost:5173** in your browser.
 4. **Download Plan**: Export the timeline plan as JSON
 5. **Render Video**: Generate the final stitched video with B-roll overlays
 
-## 📤 Output Format
+## Output Format
 
 ### Timeline Plan JSON
 
@@ -181,7 +181,7 @@ Open **http://localhost:5173** in your browser.
 - B-roll overlays with 0.3s crossfade transitions
 - Continuous A-roll audio throughout
 
-## 🔌 API Endpoints
+## API Endpoints
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
@@ -194,7 +194,7 @@ Open **http://localhost:5173** in your browser.
 | `/download/{filename}` | GET | Download rendered video |
 | `/timeline-plan` | GET | Get last saved plan |
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 flona-ai/
@@ -227,14 +227,14 @@ flona-ai/
 └── README.md
 ```
 
-## 🧠 Design Decisions
+## Design Decisions
 
 ### Why Gemini for Everything?
 
 1. **Unified API**: Single dependency for transcription, vision, and reasoning
 2. **Multimodal Native**: Direct video understanding without frame extraction
 3. **Hinglish Support**: Excellent mixed-language transcription
-4. **Cost-Effective**: Gemini 2.5 Flash Lite offers great performance/cost ratio
+4. **Cost-Effective**: Gemini 2.5 Flash Lite offers great performance/cost ratio (free quota)
 
 ### Matching Logic
 
@@ -253,14 +253,14 @@ The system goes beyond naive random insertion:
 | Minimum gap | 5 seconds |
 | Transitions | 0.3s crossfade |
 
-## ⚠️ Limitations
+## Limitations
 
 - A-roll length: 30-90 seconds (optimized range)
 - B-roll clips: Up to 6 clips
 - Requires internet for Gemini API
 - FFmpeg required for video rendering
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### "Gemini API key not configured"
 - Ensure `.env` file exists in `backend/`
@@ -276,12 +276,3 @@ The system goes beyond naive random insertion:
 - Check video URLs are accessible
 - Verify Gemini API quota not exceeded
 - Check backend logs for detailed errors
-
-## 📄 License
-
-MIT License
-
-## 🙏 Acknowledgments
-
-- Google Gemini AI for multimodal video understanding
-- FFmpeg for video processing capabilities
