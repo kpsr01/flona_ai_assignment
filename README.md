@@ -75,7 +75,7 @@ sudo apt install ffmpeg
 
 ```bash
 git clone https://github.com/kpsr01/flona_ai_assignment.git
-cd flona-ai
+cd flona-ai_assignment
 ```
 
 ### 2. Backend Setup
